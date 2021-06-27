@@ -1,0 +1,29 @@
+<div [class.dark-theme]="isDark">
+    <mat-toolbar [color]="'primary'">
+        <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+        <span class="frame-toolbar-title">{{appName}}</span>
+        <span class="frame-toolbar-spacer"></span>
+
+        <button mat-icon-button (click)="toggleTheme()" [matTooltip]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+            <mat-icon>
+                {{isDark ? 'brightness_5' : 'brightness_3'}}
+            </mat-icon>
+        </button>
+        
+    </mat-toolbar>
+    <mat-sidenav-container class="frame-sidenav-container">
+        
+        <mat-sidenav #sidenav [mode]="isHandset ? 'over' : 'side'" [fixedInViewport]="isHandset" fixedTopGap="56">
+            
+        </mat-sidenav>
+        
+        <mat-sidenav-content>
+            
+            <ng-content></ng-content>
+            
+        </mat-sidenav-content>
+        
+    </mat-sidenav-container>
+</div>
+  
+

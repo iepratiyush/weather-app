@@ -5,17 +5,23 @@ const qs = require('qs')
 
 const handler = async function (event) {
   // apply our function to the queryStringParameters and assign it to a variable
-  const API_PARAMS = qs.stringify(event.queryStringParameters)
-  console.log('API_PARAMS', API_PARAMS)
+  const BASE_URL = 'https://api.openweathermap.org/';
+  const API_PARAMS = qs.stringify(event.queryStringParameters);
+  const pathArr = event.path.split('/');
+  const path = pathArr.slice(4).join('/');
+
   // Get env var values defined in our Netlify site UI
 
   // TODO: customize your URL and API keys set in the Netlify Dashboard
   // this is secret too, your frontend won't see this
   const { API_SECRET } = process.env
-  const URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_SECRET}&${API_PARAMS}`;
+  // const URL = isCurrent ? 
+  //           `https://api.openweathermap.org/data/2.5/weather?units=metrics&appid=${API_SECRET}&${API_PARAMS}` :
+  //           `https://api.openweathermap.org/data/2.5/forecast/daily?units=metrics&appid=${API_SECRET}&${API_PARAMS}`;
+  const URL = `${BASE_URL}/${path}?appid=${API_SECRET}&${API_PARAMS}`;
 
-  console.log('Constructed URL is ...', URL)
 
+  console.log(URL);
   try {
     const { data } = await axios.get(URL)
     // refer to axios docs for other methods if you need them

@@ -1,17 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  $position: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+    navigator.geolocation.getCurrentPosition(resp => {
+      this.$position.next(resp);
+    },
+    err => {
+      this.$position.next(err);
+    })
+  }
 
-  getData(): Observable<any> {
-    return this.http.get<any>(`/.netlify/functions/weather-app-proxy?q=ranchi`);
+  getData(url: string): Observable<any> {
+    // console.log(`/.netlify/functions/weather-app-proxy?q=ranchi`);
+    return this.http.get<any>(url);
+  }
+
+  getPosition() {
+    return this.$position;
   }
 }

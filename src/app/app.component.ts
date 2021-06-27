@@ -9,10 +9,4 @@ import { DataService } from './shared/services/data.service';
 export class AppComponent {
   title = 'weather-app';
   data: any;
-
-  constructor(dataService: DataService) {
-    dataService.getData().subscribe(data => {
-      this.data = data;
-    })
-  }
 }
