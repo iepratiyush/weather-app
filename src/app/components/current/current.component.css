@@ -54,7 +54,7 @@ img {
 }
 
 .current-description-content > mat-list {
-  width: 384px;
+  width: 50%;
 }
 
 .description-list-item {

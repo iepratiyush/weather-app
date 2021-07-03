@@ -18,7 +18,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   exports: [
@@ -42,6 +43,7 @@ import { MatDialogModule } from '@angular/material/dialog'
     MatInputModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialModule { }

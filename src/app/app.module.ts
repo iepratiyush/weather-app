@@ -6,12 +6,16 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { CurrentComponent } from './components/current/current.component';
+import { HourlyComponent } from './components/hourly/hourly.component';
+import { DailyComponent } from './components/daily/daily.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CurrentComponent
+    CurrentComponent,
+    HourlyComponent,
+    DailyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+.daily-main-container {
+  padding: 16px 128px;
+}
+
+.daily-main-container-mobile {
+  padding: 16px;
+}
+
+.daily-card {
+  margin-bottom: 16px;
+}
+
+.daily-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.daily-description-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.description-header-icon {
+  padding-right: 8px;
+}
+
+.daily-description-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.daily-description-content > mat-list {
+  width: 50%;
+}
+
+.description-list-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+}
