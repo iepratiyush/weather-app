@@ -22,3 +22,8 @@
 .frame-toolbar-spacer {
   flex: 1 1 auto;
 }
+
+.sidenav-city-search {
+  display: flex;
+  flex-direction: column;
+}

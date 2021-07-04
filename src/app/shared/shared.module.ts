@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FrameComponent } from './components/frame/frame.component';
 import { MaterialModule } from './material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +14,13 @@ import { MaterialModule } from './material/material.module';
     CommonModule,
     HttpClientModule,
     MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     HttpClientModule,
     MaterialModule,
     FrameComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

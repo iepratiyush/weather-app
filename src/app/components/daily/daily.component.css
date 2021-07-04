@@ -21,23 +21,19 @@ img {
   height: 50px;
 }
 
+.description-header-icon {
+  padding-right: 8px;
+}
+
+.daily-description-content,
 .daily-description-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.description-header-icon {
-  padding-right: 8px;
-}
-
-.daily-description-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.daily-description-content > mat-list {
+.daily-description-content > mat-list,
+.daily-description-header > mat-list {
   width: 50%;
 }
 

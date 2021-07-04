@@ -1,8 +1,6 @@
 <div [ngClass]="{'hourly-main-container': !isHandset, 'hourly-main-container-mobile': isHandset}">
     <mat-card *ngFor="let weather of hourly" class="hourly-card">
         <div class="hourly-title">
-            <!-- <mat-card-title> {{weather.dt | date: 'shortTime'}} </mat-card-title>
-            <mat-card-subtitle>Lagos, Nigeria</mat-card-subtitle> -->
             <div>
                 {{weather.dt * 1000 | date: 'shortTime'}}
             </div>
@@ -12,7 +10,7 @@
             <div>
                 <span class="mat-headline">{{getWholeNumber(weather.temp)  + '°'}}</span>
                 &nbsp;
-                <span class="mat-title">{{'/' + getWholeNumber(weather.feels_like)  + '°'}}</span>
+                <span>{{'/' + getWholeNumber(weather.feels_like)  + '°'}}</span>
             </div>
             <div>
                 {{weather.pop | percent}}
@@ -24,11 +22,8 @@
             <mat-expansion-panel class="mat-elevation-z0">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{weather.weather[0].main}}
+                        {{weather.weather[0].main | titlecase}}
                     </mat-panel-title>
-                    <mat-panel-description>
-                        {{weather.weather[0].description}}
-                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="hourly-description-content">
                     <mat-list class="hourly-description-content-child-1">

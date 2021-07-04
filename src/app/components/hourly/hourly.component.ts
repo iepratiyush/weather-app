@@ -1,6 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { HOURLY } from 'src/app/shared/shared.constants';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hourly',
@@ -9,7 +8,8 @@ import { HOURLY } from 'src/app/shared/shared.constants';
 })
 export class HourlyComponent implements OnInit {
 
-  hourly = [...HOURLY];
+  @Input() hourly: any;
+
   isHandset = false;
 
   constructor(breakpointObserver: BreakpointObserver) {

@@ -1,3 +1,14 @@
-app-current {
-  justify-self: center;
+.home-container,
+.home-container-mobile {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.home-container {
+  padding: 16px 128px;
+}
+
+.home-container-mobile {
+  padding: 16px;
 }

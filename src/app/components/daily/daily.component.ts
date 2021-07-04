@@ -1,6 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { DAILY } from 'src/app/shared/shared.constants';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-daily',
@@ -9,7 +8,8 @@ import { DAILY } from 'src/app/shared/shared.constants';
 })
 export class DailyComponent implements OnInit {
 
-  daily = [...DAILY];
+  @Input() daily: any;
+
   isHandset = false;
 
   constructor(breakpointObserver: BreakpointObserver) {

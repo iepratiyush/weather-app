@@ -1,6 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { CURRENT } from 'src/app/shared/shared.constants';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-current',
@@ -9,8 +8,8 @@ import { CURRENT } from 'src/app/shared/shared.constants';
 })
 export class CurrentComponent implements OnInit {
 
-  weather = {...CURRENT};
-  imgSrc = `https://openweathermap.org/img/wn/${this.weather.weather[0].icon}@2x.png`
+  @Input() weather: any;
+
   isHandset = false;
 
   constructor(breakpointObserver: BreakpointObserver) { 
@@ -26,6 +25,10 @@ export class CurrentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getWholeNumber(value: number): number {
+    return Math.floor(value);
   }
 
 }

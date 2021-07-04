@@ -14,7 +14,16 @@
     <mat-sidenav-container class="frame-sidenav-container">
         
         <mat-sidenav #sidenav [mode]="isHandset ? 'over' : 'side'" [fixedInViewport]="isHandset" fixedTopGap="56">
-            
+            <div class="sidenav-city-search">
+                <mat-form-field appearance="fill">
+                    <mat-label>Search your city</mat-label>
+                    <input matInput type="text" [formControl]="cityControl" required>
+                    <mat-error *ngIf="cityControl.invalid">{{'city name is invalid'}}</mat-error>
+                </mat-form-field>
+                <button mat-flat-button [disabled]="cityControl.invalid" (click)="search()" color="primary">
+                    search
+                </button>
+            </div>
         </mat-sidenav>
         
         <mat-sidenav-content>

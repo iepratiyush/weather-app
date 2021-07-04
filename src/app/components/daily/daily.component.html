@@ -20,24 +20,46 @@
             <mat-expansion-panel class="mat-elevation-z0">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{weather.weather[0].main}}
+                        {{weather.weather[0].description | titlecase}}
                     </mat-panel-title>
-                    <mat-panel-description>
-                        {{weather.weather[0].description}}
-                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="daily-description-header">
                     <mat-list>
                         <mat-list-item>
                             <mat-icon class="description-header-icon">brightness_5</mat-icon>
-                            <span>{{weather.sunrise * 1000 | date:'shortTime'}}</span>
                         </mat-list-item>
                         <mat-list-item>
+                            <div class="description-list-item">
+                                <span>Rise</span>
+                                <span>{{weather.sunrise * 1000 | date:'shortTime'}}</span>
+                            </div>
+                        </mat-list-item>
+                        <mat-list-item >
+                            <div class="description-list-item">
+                                <span>Set</span>
+                                <span>{{weather.sunset * 1000 | date:'shortTime'}}</span>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-list>
+                        <mat-list-item>
                             <mat-icon class="description-header-icon">brightness_3</mat-icon>
-                            <span>{{weather.sunset * 1000 | date:'shortTime'}}</span>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <div class="description-list-item">
+                                <span>Rise</span>
+                                <span>{{weather.moonrise * 1000 | date:'shortTime'}}</span>
+                            </div>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <div class="description-list-item">
+                                <span>Set</span>
+                                <span>{{weather.moonset * 1000 | date:'shortTime'}}</span>
+                            </div>
                         </mat-list-item>
                     </mat-list>
                 </div>
+                <mat-divider></mat-divider>
                 <div class="daily-description-content">
                     <mat-list class="daily-description-content-child-1">
                         <mat-list-item>

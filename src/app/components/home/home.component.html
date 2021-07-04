@@ -1,11 +1,22 @@
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group mat-align-tabs="center" *ngIf="isWeatherData && weather != null">
     <mat-tab label="Current">
-       <app-current></app-current>
+       <app-current [weather]="weather.current"></app-current>
     </mat-tab>
     <mat-tab label="Hourly">
-        <app-hourly></app-hourly>
+        <app-hourly [hourly]="weather.hourly"></app-hourly>
     </mat-tab>
     <mat-tab label="Daily">
-        <app-daily></app-daily>
+        <app-daily [daily]="weather.daily"></app-daily>
     </mat-tab>
 </mat-tab-group>
+
+<div *ngIf="!isWeatherData" [ngClass]="{'home-container': !isHandset, 'home-container-mobile': isHandset}">
+    <mat-form-field appearance="fill">
+        <mat-label>Search your city</mat-label>
+        <input matInput type="text" [formControl]="cityControl" required>
+        <mat-error *ngIf="cityControl.invalid">{{'city name is invalid'}}</mat-error>
+    </mat-form-field>
+    <button mat-flat-button [disabled]="cityControl.invalid" (click)="search()" color="primary">
+        search
+    </button>
+</div>

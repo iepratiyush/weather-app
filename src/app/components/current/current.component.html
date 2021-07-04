@@ -2,24 +2,22 @@
 <div [ngClass]="{'current-main-container': !isHandset, 'current-main-container-mobile': isHandset}">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Ranchi, India</mat-card-title>
-            <mat-card-subtitle>{{weather.dt * 1000 | date:'shortTime'}}</mat-card-subtitle>
+            <mat-card-title>{{weather.dt * 1000 | date:'shortTime'}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="current-head-child-1">
-                <div class="mat-display-3">{{weather.temp + '°'}}</div>
-                <div class="mat-headline">{{weather.weather[0].main}}</div>
-                <div class="mat-title">{{weather.weather[0].description}}</div>
+                <div class="mat-display-3">{{getWholeNumber(weather.temp) + '°'}}</div>
+                <div class="mat-headline">{{weather.weather[0].description | titlecase}}</div>
             </div>
             <div class="current-head-child-2">
-                <img [src]="imgSrc"/>
+                <img [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'"/>
             </div>
         </mat-card-content>
     </mat-card>
     <mat-card class="current-description">
         <div class="current-description-header">
             <div class="current-description-header-child-1">
-                <div class="mat-display-3">{{weather.feels_like + '°'}}</div>
+                <div class="mat-display-3">{{getWholeNumber(weather.feels_like) + '°'}}</div>
                 <div class="mat-headline">{{'Feels like'}}</div>
             </div>
             <div class="current-description-header-child-2">
@@ -65,7 +63,7 @@
                             Dew point
                         </span>
                         <span>
-                            {{weather.dew_point + '°'}}
+                            {{getWholeNumber(weather.dew_point) + '°'}}
                         </span>
                     </div>
                 </mat-list-item>
