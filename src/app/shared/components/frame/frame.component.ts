@@ -13,7 +13,7 @@ import { LocationService } from '../../services/location.service';
 })
 export class FrameComponent implements OnInit {
 
-  isDark = true;
+  isDark = false;
   isHandset = false;
   appName = 'Weather App';
   cityControl = new FormControl('', [Validators.required]);
@@ -40,7 +40,7 @@ export class FrameComponent implements OnInit {
     if (localStorage.getItem('weather-app-theme')) {
       this.isDark = localStorage.getItem('weather-app-theme') === 'dark';
     } else {
-      localStorage.setItem('weather-app-theme', 'dark');
+      localStorage.setItem('weather-app-theme', this.isDark ? 'dark' : 'light');
     }
   }
 
@@ -61,7 +61,7 @@ export class FrameComponent implements OnInit {
     this.dataService.getData(url).subscribe(res => {
       this.locationService.setPosition({lat: res[0].lat, lon: res[0].lon})
     }, err => {
-      this.snackbar.open('Please try some other city', 'dismiss', {duration: 5000});
+      this.snackbar.open('Please try some other city', 'Dismiss', {duration: 5000});
     })
   }
   

@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
           this.weather = res;
         },
         err => {
-          this.snackbar.open('Error in getting weather data', 'dismiss', {duration: 5000});
+          this.snackbar.open('Error in getting weather data', 'Dismiss', {duration: 5000});
         })
       }
     })
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
       this.locationService.setPosition({lat: resp.coords.latitude, lon: resp.coords.longitude});
     },
     err => {
-      this.snackbar.open('Location is disabled', 'dismiss', {duration: 5000});
+      this.snackbar.open('Location is disabled', 'Dismiss', {duration: 5000});
     })
   }
 
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
       console.log(res);
       this.locationService.setPosition({lat: res[0].lat, lon: res[0].lon})
     }, err => {
-      this.snackbar.open('Please try some other city', 'dismiss', {duration: 5000});
+      this.snackbar.open('Please try some other city', 'Dismiss', {duration: 5000});
     })
   }
 
